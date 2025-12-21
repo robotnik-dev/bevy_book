@@ -31,4 +31,7 @@ to register them is key.
 ## Apply the solution
 
 Either stash your changes or switch to a new branch and then run
-`git apply solution_1.patch`
+
+```bash
+git apply solution_1.patch
+```
