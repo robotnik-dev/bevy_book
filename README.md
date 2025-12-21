@@ -24,6 +24,7 @@ to register them is key.
 
 ## Tips
 
+- You just need the file `src/demo/player.rs`
 - Look into the function `record_player_directional_input` because it's doing a
   similiar job to what we want to achieve.
 - The registering of the `System` is done at line 23.
