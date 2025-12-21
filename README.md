@@ -1,77 +1,34 @@
-# Bevy Book
+## Task 1
 
-I want to learn bevy and simultanously teach it to my girlfriend, this is what
-this project tries to attempt.
+Make the duck go brrr with a `sprint` feature.
 
-## Setup
+## Acceptance criteria
 
-1. Install Rust Rust installation goes via rustup
+- When holding a keyboard button down, the duck moves faster
+- When releasing the button, the duck goes back to normal speed
 
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
+## Stuff you need to know
 
-2. Install dependencies
+Since this is your first task, you might wanna read about the fundamentals of
+bevy and how the code is structured. You just need to touch the
+`src/demo/player.rs` file for this task but knowing how systems behave and how
+to register them is key.
 
-Bevy needs some
-[dependencies](https://github.com/bevyengine/bevy/blob/latest/docs/linux_dependencies.md)
-for each platform something different.
+- ECS [overview](https://bevy.org/learn/quick-start/getting-started/ecs/)
+- How to
+  [register](https://bevy.org/learn/quick-start/getting-started/ecs/#your-first-system)
+  a new `System`
+- How to
+  [Query](https://bevy.org/learn/quick-start/getting-started/ecs/#your-first-query)
+  for a `Component`
 
-3. Install bevy CLI
+## Tips
 
-To check for bevy lints and easily run the game, it's convenient to have to bevy
-cli installed. It's not stable yet but you can work with it.
+- Look into the function `record_player_directional_input` because it's doing a
+  similiar job to what we want to achieve.
+- The registering of the `System` is done at line 23.
 
-`cargo install --git https://github.com/TheBevyFlock/bevy_cli --branch main --locked bevy_cli`
+## Apply the solution
 
-3. Run the game
-
-This project was generated using the
-[Bevy New 2D](https://github.com/TheBevyFlock/bevy_new_2d) template and will be
-the example game throughout this journey.
-
-Run the game with this command
-
-```bash
-bevy run
-```
-
-or
-
-```bash
-cargo run
-```
-
-This wil take a while when compiling for the first time. After that each run
-command should compile relatively quick.
-
-You will hopefully see a window opening and when you start the game you can walk
-the little duck around with `wasd` or `arrow keys`.
-
-## The book
-
-The main purpose of the book is to work with the base game and try to change one
-thing at a time. This is to ensure that no step is to overwhelming and you can
-take your time exploring the base codebase afterwards if you want to.
-
-### How it's supposed to work
-
-Each challenge or task is it's own branch. After completing a task, a git .patch
-file can be applied to reveal the solution I found. It can be multiple solutions
-which will be numbered beginning with `1`.
-
-> Before you apply make sure that the working tree is clean with `git restore .`
-> WARNING: This will erase all of your work so you can alternatively just make a
-> new branch of of this one and apply the solution there if you don't want to
-> erase your code. E.g. `git commit -am "my solution"` to save your code and
-> then `git switch -c my-solution-1` to apply my solution afterwards.
-
-To apply the solution: `git apply solution_<number>.patch`
-
-## Let's start
-
-You can go to the first task by switching to the first branch:
-`git switch task_1`
-
-> `git switch` works with a non-clean git tree so all changes are pulled over to
-> the branch. Use `git checkout` or stash your changes when you don't want that.
+Either stash your changes or switch to a new branch and then run
+`git apply solution_1.patch`
