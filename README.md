@@ -62,7 +62,7 @@ Each challenge or task is it's own branch. After completing a task, a git .patch
 file can be applied to reveal the solution I found. It can be multiple solutions
 which will be numbered beginning with `1`.
 
-> Before you apply make sure that the working tree is clean with
+Before you apply make sure that the working tree is clean:
 
 ```bash
 git restore .
@@ -70,23 +70,16 @@ git restore .
 
 > WARNING: This will erase all of your work so you can alternatively just make a
 > new branch of of this one and apply the solution there if you don't want to
-> erase your code. E.g.
+> erase your code.
 
 ```bash
+# Save your code
 git commit -am "my solution"
-```
 
-> to save your code and then
+# Switch to a new branch.
+git switch -c my-solution-task-1
 
-```bash
-git switch -c my-solution-1
-```
-
-> to switch to a new branch.
-
-To apply the solution(for number 1):
-
-```bash
+# Apply the solution
 git apply solution_1.patch
 ```
 
