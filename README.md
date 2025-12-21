@@ -22,7 +22,9 @@ for each platform something different.
 To check for bevy lints and easily run the game, it's convenient to have to bevy
 cli installed. It's not stable yet but you can work with it.
 
-`cargo install --git https://github.com/TheBevyFlock/bevy_cli --branch main --locked bevy_cli`
+```bash
+cargo install --git https://github.com/TheBevyFlock/bevy_cli --branch main --locked bevy_cli
+```
 
 3. Run the game
 
@@ -60,18 +62,41 @@ Each challenge or task is it's own branch. After completing a task, a git .patch
 file can be applied to reveal the solution I found. It can be multiple solutions
 which will be numbered beginning with `1`.
 
-> Before you apply make sure that the working tree is clean with `git restore .`
+> Before you apply make sure that the working tree is clean with
+
+```bash
+git restore .
+```
+
 > WARNING: This will erase all of your work so you can alternatively just make a
 > new branch of of this one and apply the solution there if you don't want to
-> erase your code. E.g. `git commit -am "my solution"` to save your code and
-> then `git switch -c my-solution-1` to apply my solution afterwards.
+> erase your code. E.g.
 
-To apply the solution: `git apply solution_<number>.patch`
+```bash
+git commit -am "my solution"
+```
+
+> to save your code and then
+
+```bash
+git switch -c my-solution-1
+```
+
+> to switch to a new branch.
+
+To apply the solution(for number 1):
+
+```bash
+git apply solution_1.patch
+```
 
 ## Let's start
 
 You can go to the first task by switching to the first branch:
-`git switch task_1`
+
+```bash
+git switch task_1
+```
 
 > `git switch` works with a non-clean git tree so all changes are pulled over to
 > the branch. Use `git checkout` or stash your changes when you don't want that.
