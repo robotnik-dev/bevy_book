@@ -6,14 +6,9 @@ if [[ `git status --porcelain` ]]; then
   exit 1;
 fi
 
-for patch in ./solutions/*.patch; do
-  echo "Checking $patch..."
-  git apply --check "$patch"
-done
+git apply -3 --ignore-space-change --ignore-whitespace --verbose  solutions/*.patch
 
-echo "Apply all patches ..."
-cat ./solutions/*.patch | git apply
-echo "All done."
+echo "Solution applied!"
 echo ""
 echo "Revert changes with:"
-echo "git restore ."
+echo "solutions/restore.sh"
