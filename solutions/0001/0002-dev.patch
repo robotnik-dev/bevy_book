@@ -1,0 +1,13 @@
+diff --git a/src/demo/player.rs b/src/demo/player.rs
+index b1a95ed..d6facbf 100644
+--- a/src/demo/player.rs
++++ b/src/demo/player.rs
+@@ -104,7 +104,7 @@ fn record_sprint(
+         let mut speed = normal_speed;
+         // change to the sprint speed when holding down shift to three times the normal value.
+         if input.pressed(KeyCode::ShiftLeft) {
+-            speed *= 3.0;
++            speed *= 10.0;
+         };
+         // apply max speed change to the controller.
+         controller.max_speed = speed;
