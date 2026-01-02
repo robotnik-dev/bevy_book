@@ -107,7 +107,7 @@ solutions/apply.sh 0001
 ```
 
 <details>
-<summary> How i made it (spoiler) <summary>
+<summary> How i made it (spoiler) </summary>
 
 I decided to use the `shift` key for sprinting. The current system works like
 this:
@@ -126,7 +126,7 @@ this:
 
 With this i changed just one file and got the sprinting feature done.
 
-<details>
+</details>
 
 ### The task
 
