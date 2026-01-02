@@ -58,19 +58,27 @@ take your time exploring the base codebase afterwards if you want to.
 
 ### How it's supposed to work
 
-Each challenge or task is it's own branch. After completing a task, a git .patch
-file can be applied to reveal the solution I found. It can be multiple solutions
-which will be numbered beginning with `1`.
-
-Before you apply make sure that the working tree is clean:
+Each task solution is prepared in a seperate git patch file. To apply the
+solution you can run the script in the 'solutions' folder with a conrete task
+number. The task number is given inside the task itself so e.g. you want to see
+the solution for task number 3 you can run
 
 ```bash
-git restore .
+solutions/apply.sh 0003
 ```
 
-> WARNING: This will erase all of your work so you can alternatively just make a
-> new branch of of this one and apply the solution there if you don't want to
-> erase your code.
+> Before you apply make sure that the working tree is clean (save your work)
+> otherwise the script won't work.
+
+### Save your work
+
+1. Stash your changes
+
+```bash
+git stash --include-untracked
+```
+
+2. Apply the solution to a different branch
 
 ```bash
 # Save your code
@@ -83,13 +91,45 @@ git switch -c my-solution-task-1
 git apply solution_1.patch
 ```
 
-## Let's start
-
-You can go to the first task by switching to the first branch:
+3. Just delete your code
 
 ```bash
-git switch task_1
+git restore --staged .
+git restore .
 ```
 
-> `git switch` works with a non-clean git tree so all changes are pulled over to
-> the branch. Use `git checkout` or stash your changes when you don't want that.
+## Task 0001
+
+### Solution
+
+```bash
+solutions/apply.sh 0001
+```
+
+<details>
+<summary> How i made it (spoiler) <summary>
+
+I decided to use the `shift` key for sprinting. The current system works like
+this:
+
+1. The player input is recorded seperately from the movement itself, so when a
+   key is pressed, it's saved as an `intent`. The `Controller` struct has a
+   member called [intent](./src/demo/movement.rs#L37) and is manipulated inside
+   the function [record_player_directional_input](./src/demo/player.rs#L65).
+
+2. I copied the function and called the new one `record_sprint`. In there i
+   listened for the input event for the shift key and changed the `intent` like
+   in the other function but this time the `max_speed`.
+
+3. After this i just needed to register the new function (called `system` in
+   bevy) to the App.
+
+With this i changed just one file and got the sprinting feature done.
+
+<details>
+
+### The task
+
+We try to extend the character movement of the duck to increase the movement
+speed while a key is pressed and return to normal when released; basically a
+`sprint` feature.
