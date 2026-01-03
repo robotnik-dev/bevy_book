@@ -107,7 +107,7 @@ solutions/apply.sh 0001
 ```
 
 <details>
-<summary> How i made it (spoiler) </summary>
+<summary> How I made it (spoiler) </summary>
 
 I decided to use the `shift` key for sprinting. The current system works like
 this:
@@ -117,19 +117,32 @@ this:
    member called [intent](./src/demo/movement.rs#L37) and is manipulated inside
    the function [record_player_directional_input](./src/demo/player.rs#L65).
 
-2. I copied the function and called the new one `record_sprint`. In there i
+2. I copied the function and called the new one `record_sprint`. In there I
    listened for the input event for the shift key and changed the `intent` like
    in the other function but this time the `max_speed`.
 
-3. After this i just needed to register the new function (called `system` in
+3. After this I just needed to register the new function (called `system` in
    bevy) to the App.
 
-With this i changed just one file and got the sprinting feature done.
+With this I changed just one file and got the sprinting feature done.
 
 </details>
 
 ### The task
 
 We try to extend the character movement of the duck to increase the movement
-speed while a key is pressed and return to normal when released; basically a
-`sprint` feature.
+speed while a key is pressed and return to normal when released. Basically a
+`sprinting` feature.
+
+### Time Estimate
+
+I needed ca. 30 min.
+
+### Tips
+
+- Read about [ECS](https://bevy.org/learn/quick-start/getting-started/ecs/) to
+  understand what `Components` and `Systems` are and how to register a new
+  `System`.
+- You just need to change one file.
+- You want to change the `max_speed` variable of the
+  [MovementController](./src/demo/movement.rs#L35) struct somehow.
